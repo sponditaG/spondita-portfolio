@@ -1,58 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Breathalyzer Usability • Spondita</title>
   <style>
     :root{--bg:#f6f7fb;--fg:#1f2937;--muted:#6b7280;--brand:#0b5bd3;--card:#fff;--radius:16px;--shadow:0 10px 25px rgba(0,0,0,.08)}
     *{box-sizing:border-box} body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--fg)}
     a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:960px;margin:auto;padding:24px}.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
-    header{background:#fff;border-bottom:1px solid #e5e7eb}.nav{max-width:960px;margin:auto;display:flex;gap:14px;padding:12px}
-    h1{margin:8px 0 4px;color:#0a3ea9;font-size:34px} h2{margin:22px 0 10px}.muted{color:#6b7280}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 0}.chip{background:#eef4ff;color:#0b5bd3;border-radius:999px;padding:6px 10px;font-size:12px}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}@media (max-width:860px){.grid{grid-template-columns:1fr}}
+    .wrap{max-width:960px;margin:auto;padding:24px} .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+    header{background:#fff;border-bottom:1px solid #e5e7eb} .nav{max-width:960px;margin:auto;display:flex;gap:14px;padding:12px}
+    h1{margin:8px 0 4px;color:#0a3ea9;font-size:34px} h2{margin:22px 0 10px} .muted{color:var(--muted)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 0} .chip{background:#eef4ff;color:#0b5bd3;border-radius:999px;padding:6px 10px;font-size:12px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px} @media (max-width:860px){.grid{grid-template-columns:1fr}}
     .callout{background:#f1f5ff;border:1px solid #dbe7ff;border-radius:12px;padding:12px 14px;margin:10px 0}
     .btn{display:inline-block;background:#0b5bd3;color:#fff;padding:10px 14px;border-radius:10px;font-weight:600}
     footer{color:#6b7280;text-align:center;padding:32px}
+    ul{padding-left:18px}
   </style>
 </head>
 <body>
-<header><nav class="nav"><a href="index.html">← Back to Portfolio</a></nav></header>
-<main class="wrap">
-  <section class="card">
-    <h1>Breathalyzer Usability for Clinical Trials</h1>
-    <p class="muted">Critical tasks • Providers & participants • Learnability • Workload</p>
-    <div class="chips">
-      <span class="chip">Task Analysis</span><span class="chip">UMUX-Lite</span><span class="chip">NASA-TLX</span><span class="chip">Formative Study</span>
-    </div>
-    <div class="grid">
-      <div>
-        <h2>Objective</h2>
-        <p>Ensure intended users can safely and effectively perform setup, sample collection, result readout, and data handoff with acceptable workload and satisfaction.</p>
-        <h2>Method</h2>
-        <ul>
-          <li>Defined critical tasks & error taxonomy; observed time-on-task and assistance</li>
-          <li>Collected UMUX-Lite (usability) and NASA-TLX (workload)</li>
-          <li>Prioritized mitigations for labeling, affordances, training media</li>
-        </ul>
-        <h2>Key findings</h2>
-        <ul>
-          <li>Label & connector tweaks reduced setup errors on first attempt</li>
-          <li>Brief video + quick-start card lowered workload and increased success</li>
-          <li>Acceptance thresholds & trial-readiness checklist delivered</li>
-        </ul>
-        <p><a class="btn" href="#">Task flow</a> &nbsp; <a class="btn" href="#">Measurement plan</a></p>
+  <header>
+    <nav class="nav"><a href="index.html">← Back to Portfolio</a></nav>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h1>Breathalyzer Usability — Formative & Summative Evaluation</h1>
+      <p class="muted">MedTech • Critical tasks • Providers & participants • Learnability • Workload</p>
+
+      <div class="chips">
+        <span class="chip">Formative Usability</span><span class="chip">Summative Validation</span>
+        <span class="chip">Task Analysis</span><span class="chip">UMUX-Lite</span><span class="chip">NASA-TLX</span>
       </div>
-      <aside>
-        <div class="callout"><strong>Users:</strong> providers administering tests; participants submitting samples</div>
-        <div class="callout"><strong>Outcomes:</strong> critical-task success, error types, time, assistance, UMUX-Lite, NASA-TLX</div>
-        <div class="callout"><strong>Artifacts:</strong> labeling spec, procedure card, training script/video</div>
-      </aside>
-    </div>
-  </section>
-</main>
-<footer>© <span id="y"></span> Spondita</footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+      <div class="grid">
+        <div>
+          <h2>Objective</h2>
+          <p>
+            Ensure intended users (providers administering tests; participants submitting samples) can safely and effectively
+            complete <em>setup, sample collection, result readout,</em> and <em>data handoff</em> with acceptable workload and satisfaction
+            to support trial readiness.
+          </p>
+
+          <h2>Approach</h2>
+          <ul>
+            <li><strong>Formative (exploratory):</strong> contextual inquiry and task analysis to map critical paths and error modes; rapid prototyping of labels, microcopy, and assembly affordances.</li>
+            <li><strong>Summative (validation):</strong> structured task scenarios with success criteria and acceptance thresholds; quantitative instruments (UMUX-Lite, NASA-TLX) and error taxonomy scoring.</li>
+          </ul>
+
+          <h2>Measures</h2>
+          <ul>
+            <li><strong>Primary:</strong> critical-task success rate, first-attempt success, error types/severity, time-on-task, assistance</li>
+            <li><strong>Secondary:</strong> UMUX-Lite (perceived usability), NASA-TLX (workload), post-task confidence</li>
+          </ul>
+
+          <h2>Key Findings</h2>
+          <ul>
+            <li>Labeling and connector affordances reduced setup errors on first attempt.</li>
+            <li>Short training video + pocket procedure card lowered workload and improved success for novices.</li>
+            <li>Defined acceptance thresholds and a trial-readiness checklist for handoff to PI and operations.</li>
+          </ul>
+
+          <h2>Impact</h2>
+          <ul>
+            <li>Evidence-based changes to labeling, assembly order, and quick-start guidance.</li>
+            <li>Validated the device workflow against acceptance criteria for clinical trial use.</li>
+          </ul>
+
+          <p>
+            <a class="btn" href="#">Task flow</a>
+            &nbsp; <a class="btn" href="#">Measurement plan</a>
+          </p>
+        </div>
+
+        <aside>
+          <div class="callout"><strong>Users:</strong> providers; trial participants</div>
+          <div class="callout"><strong>Artifacts:</strong> error taxonomy, acceptance thresholds, procedure card, training script/video</div>
+          <div class="callout">
+  <strong>Highlights:</strong>
+  <ul>
+    <li>Applied both formative and summative usability methods to evaluate device readiness</li>
+    <li>Collaborated with product, design, and clinical teams to translate insights into design and training updates</li>
+    <li>Integrated quantitative and qualitative metrics to inform safe, effective clinical use</li>
+  </ul>
+</div>
+
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="y"></span> Spondita</footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
+
