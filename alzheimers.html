@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alzheimer’s Risk Understanding • Spondita</title>
+  <style>
+    :root{--bg:#f6f7fb;--fg:#1f2937;--muted:#6b7280;--brand:#0b5bd3;--card:#fff;--radius:16px;--shadow:0 10px 25px rgba(0,0,0,.08)}
+    *{box-sizing:border-box} body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--fg)}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:960px;margin:auto;padding:24px}.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+    header{background:#fff;border-bottom:1px solid #e5e7eb}.nav{max-width:960px;margin:auto;display:flex;gap:14px;padding:12px}
+    h1{margin:8px 0 4px;color:#0a3ea9;font-size:34px} h2{margin:22px 0 10px}.muted{color:var(--muted)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 0}.chip{background:#eef4ff;color:#0b5bd3;border-radius:999px;padding:6px 10px;font-size:12px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}@media (max-width:860px){.grid{grid-template-columns:1fr}}
+    .callout{background:#f1f5ff;border:1px solid #dbe7ff;border-radius:12px;padding:12px 14px;margin:10px 0}
+    .btn{display:inline-block;background:#0b5bd3;color:#fff;padding:10px 14px;border-radius:10px;font-weight:600}
+    footer{color:#6b7280;text-align:center;padding:32px}
+  </style>
+</head>
+<body>
+<header><nav class="nav"><a href="index.html">← Back to Portfolio</a></nav></header>
+<main class="wrap">
+  <section class="card">
+    <h1>Alzheimer’s Disease Risk Understanding</h1>
+    <p class="muted">Risk communication • Older adults • Icon arrays • Plain-language framing</p>
+    <div class="chips">
+      <span class="chip">Interviews</span><span class="chip">Usability Testing</span>
+      <span class="chip">A/B Experiments</span><span class="chip">Comprehension</span><span class="chip">Recall</span>
+    </div>
+    <h2>Overview</h2>
+    <p>We redesigned AD risk reports and study materials to help cognitively normal older adults accurately interpret 5-year risk and trust results.</p>
+    <div class="grid">
+      <div>
+        <h2>My role</h2>
+        <ul>
+          <li>Study design (measures, tasks); IRB-aligned materials</li>
+          <li>Prototype variants: icon arrays, bar/dot charts, FAQ, clinician script</li>
+          <li>Analysis: comprehension, recall, worry, clarity</li>
+        </ul>
+        <h2>Process</h2>
+        <ol>
+          <li>Baseline evaluation of legacy report</li>
+          <li>Lo-fi → hi-fi prototypes; cognitive walkthroughs</li>
+          <li>Usability sessions + short A/B visualization/wording tests</li>
+        </ol>
+        <h2>Key findings</h2>
+        <ul>
+          <li>Icon arrays ↑ comprehension & recall vs numeric-only</li>
+          <li>“Memory and thinking problems” phrasing reduced confusion</li>
+          <li>Adding “next steps” increased usefulness & trust</li>
+        </ul>
+        <p><a class="btn" href="#">Sample report (PDF)</a> &nbsp; <a class="btn" href="#">Methods appendix</a></p>
+      </div>
+      <aside>
+        <div class="callout"><strong>Participants:</strong> cognitively normal older adults; mixed literacy/numeracy</div>
+        <div class="callout"><strong>Measures:</strong> comprehension quiz, risk recall, worry, clarity, decisional regret (follow-up)</div>
+        <div class="callout"><strong>Artifacts:</strong> icon array spec, bar/dot variants, FAQ, clinician script</div>
+      </aside>
+    </div>
+  </section>
+</main>
+<footer>© <span id="y"></span> Spondita</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
