@@ -2,71 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Protected Portfolio • Spondita</title>
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      background: #f7f7f7;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      color: #333;
-    }
-    input {
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    button {
-      padding: 10px 16px;
-      margin-left: 8px;
-      background: #0b5bd3;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #004aad;
-    }
-    .card {
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    h1 {
-      color: #004aad;
-    }
+    body {font-family: system-ui, sans-serif; background:#f7f7f7; margin:0; min-height:100vh; display:grid; place-items:center; color:#333;}
+    .card {background:#fff; padding:40px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.1); width:min(520px, 92%); text-align:center}
+    h1 {color:#004aad; margin:0 0 8px}
+    .row {display:flex; gap:8px; justify-content:center; margin-top:12px}
+    input {padding:10px; font-size:16px; border:1px solid #ccc; border-radius:8px; width:240px}
+    button {padding:10px 16px; background:#0b5bd3; color:#fff; border:none; border-radius:8px; font-weight:600; cursor:pointer}
+    button:hover {background:#004aad}
+    #message {color:#b00020; margin-top:10px; min-height:1.2em}
   </style>
 </head>
 <body>
   <div class="card">
     <h1>Enter Password</h1>
     <p>This page is password protected.</p>
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="checkPassword()">Submit</button>
-    <p id="message" style="color:red; margin-top:10px;"></p>
+    <div class="row">
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password"/>
+      <!-- type="button" so it doesn't try to submit a form -->
+      <button type="button" id="submitBtn">Submit</button>
+    </div>
+    <div id="message"></div>
   </div>
 
   <script>
-    function checkPassword() {
-      const password = document.getElementById('password').value;
-      const correctPassword = "research123"; // <-- change this to your password
-      if (password === correctPassword) {
-  sessionStorage.setItem('portfolio_ok', '1');  // remembers the login
-  window.location.href = "home.html";           // open the real portfolio
-} else {
-  document.getElementById('message').textContent = "Incorrect password.";
-}
+    (function () {
+      const CORRECT = "SponditaUX";  // ← set your password here (case-sensitive)
 
+      function go() {
+        const input = document.getElementById('password');
+        const msg = document.getElementById('message');
+        const typed = (input.value || '').trim();
+
+        // basic feedback
+        msg.textContent = "";
+
+        if (!typed) {
+          msg.textContent = "Please type the password.";
+          input.focus();
+          return;
+        }
+
+        if (typed === CORRECT) {
+          try {
+            sessionStorage.setItem('portfolio_ok', '1'); // remember login for this tab/session
+          } catch (_) {}
+          // Navigate to your actual portfolio page
+          window.location.assign('home.html');
+        } else {
+          msg.textContent = "Incorrect password.";
+          input.focus();
+        }
+      }
+
+      // Wire up click + Enter key
+      document.getElementById('submitBtn').addEventListener('click', go);
+      document.getElementById('password').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') go();
+      });
+    })();
   </script>
 </body>
 </html>
