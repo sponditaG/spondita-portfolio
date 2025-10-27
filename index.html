@@ -61,11 +61,12 @@
       const password = document.getElementById('password').value;
       const correctPassword = "SponditaUX"; // <-- change this to your password
       if (password === correctPassword) {
-        window.location.href = "home.html"; // <-- this is the real portfolio page
-      } else {
-        document.getElementById('message').textContent = "Incorrect password.";
-      }
-    }
+  sessionStorage.setItem('portfolio_ok', '1');  // remembers the login
+  window.location.href = "home.html";           // open the real portfolio
+} else {
+  document.getElementById('message').textContent = "Incorrect password.";
+}
+
   </script>
 </body>
 </html>
