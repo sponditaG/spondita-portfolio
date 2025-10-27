@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 🔒 Redirects visitors back to index.html if they haven't entered the correct password -->
+  <!-- 🔒 Redirect visitors who haven't entered the password -->
   <script>
     if (sessionStorage.getItem('portfolio_ok') !== '1') {
       window.location.replace('index.html');
@@ -189,11 +189,13 @@
   <footer>
     © <span id="y"></span> Spondita · Built with GitHub Pages
   </footer>
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
 
 
 
