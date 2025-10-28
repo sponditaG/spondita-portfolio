@@ -1,71 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Protected Portfolio • Spondita</title>
+  <meta charset="utf-8" />
+  <title>Spondita – UX Portfolio (Protected)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    body {font-family: system-ui, sans-serif; background:#f7f7f7; margin:0; min-height:100vh; display:grid; place-items:center; color:#333;}
-    .card {background:#fff; padding:40px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.1); width:min(520px, 92%); text-align:center}
-    h1 {color:#004aad; margin:0 0 8px}
-    .row {display:flex; gap:8px; justify-content:center; margin-top:12px}
-    input {padding:10px; font-size:16px; border:1px solid #ccc; border-radius:8px; width:240px}
-    button {padding:10px 16px; background:#0b5bd3; color:#fff; border:none; border-radius:8px; font-weight:600; cursor:pointer}
-    button:hover {background:#004aad}
-    #message {color:#b00020; margin-top:10px; min-height:1.2em}
+    body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:#0b1220;color:#e5e7eb}
+    .wrap{max-width:900px;margin:6vh auto;padding:24px}
+    .card{background:#111827;border:1px solid #1f2937;border-radius:14px;padding:24px;box-shadow:0 10px 20px rgba(0,0,0,.25)}
+    h1{margin:0 0 16px;font-size:28px}
+    label{display:block;margin:12px 0 4px}
+    input[type=password]{width:100%;padding:12px;border-radius:10px;border:1px solid #374151;background:#0b1220;color:#e5e7eb}
+    button{margin-top:12px;padding:12px 16px;border-radius:10px;border:0;background:#2563eb;color:#fff;font-weight:600;cursor:pointer}
+    .hint{color:#9ca3af;font-size:14px;margin-top:8px}
+    #error{color:#f87171;margin-top:10px;display:none}
+    #content{display:none;margin-top:20px}
+    iframe{width:100%;height:82vh;border:0;border-radius:14px;background:#fff}
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Enter Password</h1>
-    <p>This page is password protected.</p>
-    <div class="row">
-      <input type="password" id="password" placeholder="Password" autocomplete="current-password"/>
-      <!-- type="button" so it doesn't try to submit a form -->
-      <button type="button" id="submitBtn">Submit</button>
+  <div class="wrap">
+    <div class="card" id="gate">
+      <h1>Enter Password</h1>
+      <p class="hint">Your password unlocks and decrypts the portfolio locally in your browser.</p>
+      <label for="pw">Password</label>
+      <input id="pw" type="password" autocomplete="current-password" />
+      <button id="unlock">Unlock</button>
+      <div id="error">Incorrect password. Please try again.</div>
     </div>
-    <div id="message"></div>
+
+    <div id="content">
+      <iframe id="viewer" sandbox="allow-same-origin allow-scripts allow-forms allow-popups"></iframe>
+    </div>
   </div>
-
-  <script>
-    (function () {
-      const CORRECT = "SponditaUX";  // ← set your password here (case-sensitive)
-
-      function go() {
-        const input = document.getElementById('password');
-        const msg = document.getElementById('message');
-        const typed = (input.value || '').trim();
-
-        // basic feedback
-        msg.textContent = "";
-
-        if (!typed) {
-          msg.textContent = "Please type the password.";
-          input.focus();
-          return;
-        }
-
-        if (typed === CORRECT) {
-          try {
-            sessionStorage.setItem('portfolio_ok', '1'); // remember login for this tab/session
-          } catch (_) {}
-          // Navigate to your actual portfolio page
-          window.location.assign('home.html');
-        } else {
-          msg.textContent = "Incorrect password.";
-          input.focus();
-        }
-      }
-
-      // Wire up click + Enter key
-      document.getElementById('submitBtn').addEventListener('click', go);
-      document.getElementById('password').addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') go();
-      });
-    })();
-  </script>
+  <script src="unlock.js"></script>
 </body>
 </html>
-
 
 
